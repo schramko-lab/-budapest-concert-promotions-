@@ -1,0 +1,1097 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Concert venues, audience development and complete Budapest tour support for American choirs, orchestras and student ensembles. 20+ concerts organized since 2019.">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>Budapest Concert Tours for American Choirs &amp; Orchestras | Budapest Concert Promotions</title>
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --text-xs: clamp(.75rem, .7rem + .25vw, .875rem);
+      --text-sm: clamp(.875rem, .8rem + .35vw, 1rem);
+      --text-base: clamp(1rem, .95rem + .25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + .75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+
+      --s1: .25rem;
+      --s2: .5rem;
+      --s3: .75rem;
+      --s4: 1rem;
+      --s6: 1.5rem;
+      --s8: 2rem;
+      --s10: 2.5rem;
+      --s12: 3rem;
+      --s16: 4rem;
+      --s24: 6rem;
+      --s32: 8rem;
+
+      --r: .75rem;
+      --rl: 1rem;
+
+      --body: 'Satoshi', Arial, sans-serif;
+      --display: 'Boska', Georgia, serif;
+
+      --bg: #f7f6f2;
+      --surface: #fbfbf9;
+      --offset: #f3f0ec;
+      --ink: #28251d;
+      --muted: #62615d;
+      --line: #d8d4ce;
+      --teal: #01696f;
+      --teal2: #0c4e54;
+      --pale: #dce9e6;
+      --gold: #b77a11;
+      --shadow: 0 16px 50px rgba(48, 42, 30, .10);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .wrap {
+      width: min(1200px, calc(100% - 2rem));
+      margin: auto;
+    }
+
+    .skip {
+      position: absolute;
+      left: -999px;
+    }
+
+    .skip:focus {
+      left: 1rem;
+      top: 1rem;
+      z-index: 99;
+      background: #fff;
+      padding: 1rem;
+    }
+
+    .eyebrow {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--teal);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      min-height: 48px;
+      padding: .75rem 1.1rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      transition: transform .18s cubic-bezier(.16, 1, .3, 1), background .18s, box-shadow .18s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(1, 105, 111, .15);
+    }
+
+    .primary {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .primary:hover {
+      background: var(--teal2);
+    }
+
+    .secondary {
+      border-color: rgba(40, 37, 29, .2);
+    }
+
+    .secondary:hover {
+      background: var(--offset);
+    }
+
+    /* Header */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 246, 242, .92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(40, 37, 29, .1);
+    }
+
+    .nav {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--s4);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      font-weight: 700;
+      line-height: 1.05;
+    }
+
+    .mark {
+      width: 34px;
+      height: 42px;
+      color: var(--teal);
+    }
+
+    .brand span {
+      font-size: .95rem;
+      max-width: 175px;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      font-size: var(--text-sm);
+      font-weight: 700;
+    }
+
+    .links > a:not(.btn) {
+      color: var(--muted);
+    }
+
+    .links > a:not(.btn):hover {
+      color: var(--teal);
+    }
+
+    .menu {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-weight: 700;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: clamp(var(--s12), 9vw, var(--s32)) 0 var(--s16);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(var(--s8), 6vw, var(--s24));
+      align-items: center;
+    }
+
+    .hero h1 {
+      font: 500 clamp(2.25rem, .9rem + 3.45vw, 4.25rem) / 1.02 var(--display);
+      letter-spacing: -.035em;
+      margin: var(--s4) 0 var(--s6);
+      max-width: 15ch;
+    }
+
+    .copy {
+      color: var(--muted);
+      max-width: 54ch;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s3);
+      margin-top: var(--s8);
+    }
+
+    .response {
+      font-size: var(--text-sm);
+      color: var(--muted);
+      margin-top: var(--s3);
+    }
+
+    .art {
+      position: relative;
+      min-height: 460px;
+      border-radius: var(--rl);
+      overflow: hidden;
+      background: linear-gradient(145deg, #dce9e6, #e9e3d9);
+      box-shadow: var(--shadow);
+    }
+
+    .art:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(0deg, transparent 0 57px, rgba(1, 105, 111, .15) 58px 60px);
+    }
+
+    .clef {
+      position: absolute;
+      left: 18%;
+      top: 6%;
+      height: 86%;
+      width: 32%;
+      color: var(--teal);
+    }
+
+    .note {
+      position: absolute;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--gold);
+      right: 17%;
+      top: 22%;
+      box-shadow: 42px 125px 0 -5px var(--teal), -73px 250px 0 -4px var(--gold);
+    }
+
+    .caption {
+      position: absolute;
+      right: 9%;
+      bottom: 9%;
+      font: 500 var(--text-xl) / 1.1 var(--display);
+      max-width: 8ch;
+    }
+
+    /* Trust strip */
+
+    .trust {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: var(--s8) 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s4);
+      text-align: center;
+    }
+
+    .trust-grid > div {
+      padding: var(--s2) var(--s4);
+      border-right: 1px solid var(--line);
+    }
+
+    .trust-grid > div:last-child {
+      border-right: 0;
+    }
+
+    .trust strong {
+      display: block;
+      font-size: var(--text-sm);
+      line-height: 1.3;
+    }
+
+    .trust span {
+      display: block;
+      font-size: var(--text-xs);
+      color: var(--muted);
+      margin-top: var(--s1);
+    }
+
+    /* Common section styles */
+
+    section {
+      padding: clamp(var(--s12), 8vw, var(--s24)) 0;
+    }
+
+    .head {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: var(--s8);
+      margin-bottom: var(--s10);
+      align-items: center;
+    }
+
+    h2 {
+      font: 500 var(--text-2xl) / 1.05 var(--display);
+      letter-spacing: -.03em;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      line-height: 1.2;
+    }
+
+    .intro {
+      color: var(--muted);
+    }
+
+    /* Audience paths */
+
+    .paths {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s6);
+    }
+
+    .path {
+      padding: var(--s8);
+      border-radius: var(--rl);
+      background: var(--surface);
+      border: 1px solid rgba(40, 37, 29, .1);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .path:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .path:nth-child(2) {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .path p {
+      margin: var(--s4) 0 var(--s6);
+      color: var(--muted);
+    }
+
+    .path:nth-child(2) p {
+      color: #dce9e6;
+    }
+
+    .path:nth-child(2) .btn {
+      background: #fff;
+      color: var(--teal);
+    }
+
+    /* Services */
+
+    .services {
+      background: var(--offset);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s6);
+    }
+
+    .service {
+      padding: var(--s6) 0;
+      border-top: 2px solid var(--teal);
+      transition: transform .25s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-4px);
+    }
+
+    .service p {
+      color: var(--muted);
+      margin-top: var(--s3);
+    }
+
+    /* Process */
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s4);
+    }
+
+    .step {
+      background: var(--surface);
+      padding: var(--s6);
+      border-radius: var(--r);
+      border: 1px solid rgba(40, 37, 29, .1);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .step:hover,
+    .ref:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: rgba(1, 105, 111, .3);
+    }
+
+    .no {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      margin-bottom: var(--s6);
+    }
+
+    .step p {
+      font-size: var(--text-sm);
+      color: var(--muted);
+      margin-top: var(--s2);
+    }
+
+    /* Venue section */
+
+    .venue-layout {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: var(--s10);
+    }
+
+    .venue-layout .intro {
+      margin-top: var(--s4);
+    }
+
+    .featured-venues {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s4);
+      padding-left: var(--s6);
+    }
+
+    .venue-card {
+      min-height: 270px;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--r);
+      color: #fff;
+      box-shadow: var(--shadow);
+      background: #254f4e;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .venue-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(24, 40, 39, .24);
+    }
+
+    .venue-card svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transition: transform .55s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .venue-card:hover svg {
+      transform: scale(1.06);
+    }
+
+    .venue-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--s6);
+      background: linear-gradient(to top, rgba(15, 31, 30, .83), rgba(15, 31, 30, .04) 70%);
+    }
+
+    .venue-overlay h3 {
+      font-size: clamp(1.1rem, 1rem + .5vw, 1.4rem);
+    }
+
+    .venue-overlay p {
+      font-size: var(--text-sm);
+      color: #dce9e6;
+      margin-top: var(--s1);
+    }
+
+    .additional-title {
+      margin: var(--s10) 0 var(--s4);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .venue-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s3);
+    }
+
+    .venue {
+      padding: var(--s4);
+      background: var(--surface);
+      border: 1px solid rgba(40, 37, 29, .1);
+      border-radius: .5rem;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .venue:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(48, 42, 30, .08);
+      border-color: rgba(1, 105, 111, .3);
+    }
+
+    .venue small {
+      display: block;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: .25rem;
+    }
+
+    /* Experience and references */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s6);
+    }
+
+    .stat {
+      padding: var(--s6);
+      border-top: 1px solid var(--ink);
+    }
+
+    .stat b {
+      font: 500 var(--text-2xl) / 1 var(--display);
+      display: block;
+    }
+
+    .stat span {
+      font-size: var(--text-sm);
+      color: var(--muted);
+      display: block;
+      margin-top: var(--s3);
+    }
+
+    .refs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s4);
+    }
+
+    .ref {
+      min-height: 190px;
+      padding: var(--s6);
+      background: var(--surface);
+      border: 1px solid rgba(40, 37, 29, .1);
+      border-radius: var(--r);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .ref p {
+      font-size: var(--text-sm);
+      color: var(--muted);
+    }
+
+    /* Contact */
+
+    .contact {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: var(--s10);
+      align-items: end;
+    }
+
+    .contact .eyebrow {
+      color: #b9ded7;
+    }
+
+    .contact h2 {
+      max-width: 14ch;
+    }
+
+    .contact p {
+      color: #dce9e6;
+      margin-top: var(--s4);
+    }
+
+    .contact-links {
+      display: grid;
+      gap: var(--s3);
+      margin-top: var(--s6);
+    }
+
+    .contact-links a {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .contact .btn {
+      background: #fff;
+      color: var(--teal);
+      margin-top: var(--s6);
+    }
+
+    footer {
+      padding: var(--s8) 0;
+      background: #1d2827;
+      color: #dce9e6;
+    }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--s4);
+      font-size: var(--text-sm);
+    }
+
+    footer a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Scroll reveal */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 900px) {
+      .links {
+        display: none;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .links.open {
+        display: flex;
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        padding: var(--s6);
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-grid,
+      .head,
+      .venue-layout,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .art {
+        min-height: 330px;
+        order: -1;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .trust-grid > div:nth-child(2) {
+        border-right: 0;
+      }
+
+      .paths,
+      .service-grid,
+      .stats,
+      .refs {
+        grid-template-columns: 1fr;
+      }
+
+      .process {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .head {
+        gap: var(--s4);
+      }
+
+      .featured-venues {
+        padding-left: 0;
+      }
+
+      .venue-list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-grid {
+        gap: var(--s4);
+      }
+
+      footer .wrap {
+        flex-direction: column;
+      }
+
+      .hero h1 {
+        max-width: 16ch;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .process,
+      .trust-grid,
+      .featured-venues,
+      .venue-list {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-grid > div {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .trust-grid > div:last-child {
+        border-bottom: 0;
+      }
+
+      .art {
+        min-height: 280px;
+      }
+
+      .brand span {
+        max-width: 140px;
+      }
+
+      .actions .btn {
+        width: 100%;
+      }
+
+      .contact-links a {
+        font-size: var(--text-base);
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *:before,
+      *:after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Budapest Concert Promotions",
+      "email": "budapestconcertpromotions@gmail.com",
+      "telephone": "+36 70 621 7899",
+      "description": "Budapest-based concert promotions, audience development and tour support for American choirs, orchestras and student ensembles."
+    }
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header>
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a href="#top" class="brand" aria-label="Budapest Concert Promotions home">
+        <svg class="mark" viewBox="0 0 40 50" fill="none" aria-hidden="true">
+          <path d="M26 3c-12 6-13 24-5 35 5 7 4 10-1 10-7 0-8-11-1-15 6-4 17-1 18 6M21 3v36" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span>Budapest<br>Concert Promotions</span>
+      </a>
+
+      <button class="menu" aria-expanded="false" aria-controls="links">Menu</button>
+
+      <div id="links" class="links">
+        <a href="#ensembles">For Ensembles</a>
+        <a href="#operators">For Tour Operators</a>
+        <a href="#services">Services</a>
+        <a href="#venues">Venues</a>
+        <a href="#experience">Experience</a>
+        <a class="btn primary" href="mailto:budapestconcertpromotions@gmail.com?subject=Budapest%20Concert%20Inquiry">Email Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <p class="eyebrow">Budapest-based concert promotions</p>
+
+          <h1>Bring Your Music to Budapest — We Make the Concert Happen.</h1>
+
+          <p class="copy">
+            Concert venues, on-site production, audience development and tailored tour support for American choirs, youth orchestras, school ensembles and university groups.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="mailto:budapestconcertpromotions@gmail.com?subject=Budapest%20Concert%20Inquiry">
+              Email Us to Start Planning →
+            </a>
+
+            <a class="btn secondary" href="#services">Explore Our Services</a>
+          </div>
+
+          <p class="response">We respond within 2 business days.</p>
+        </div>
+
+        <div class="art reveal" aria-label="Musical score illustration">
+          <svg class="clef" viewBox="0 0 160 400" fill="none" aria-hidden="true">
+            <path d="M100 10C18 43 49 170 80 231c30 59 19 135-45 135-55 0-63-78-11-106 47-25 112 3 98 54M80 11v290" stroke="currentColor" stroke-width="19" stroke-linecap="round"/>
+          </svg>
+
+          <i class="note"></i>
+          <p class="caption">Music belongs in Budapest.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust">
+      <div class="wrap trust-grid">
+        <div>
+          <strong>Budapest-based</strong>
+          <span>Local concert promotions</span>
+        </div>
+
+        <div>
+          <strong>20+ concerts</strong>
+          <span>Organized since 2019</span>
+        </div>
+
+        <div>
+          <strong>American groups</strong>
+          <span>Choirs, orchestras, students</span>
+        </div>
+
+        <div>
+          <strong>One local team</strong>
+          <span>Venue · Audience · Operations</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="head reveal">
+          <div>
+            <p class="eyebrow">The Budapest difference</p>
+            <h2>More Than a Concert Venue</h2>
+          </div>
+
+          <p class="intro">
+            A successful international performance needs more than a beautiful stage. It needs the right venue, a realistic production plan, a welcoming audience and a local team that manages details calmly on the ground.
+          </p>
+        </div>
+
+        <div class="paths">
+          <article class="path reveal" id="ensembles">
+            <p class="eyebrow">For Choirs &amp; Ensembles</p>
+            <h3>Your Local Partner for Concerts, Audiences and Tours in Budapest.</h3>
+            <p>
+              Bring your choir, youth orchestra, school ensemble or university group to Budapest with local support that understands both the artistic and practical sides of performance travel.
+            </p>
+            <a class="btn secondary" href="mailto:budapestconcertpromotions@gmail.com?subject=Ensemble%20Concert%20Inquiry">
+              Plan Your Group’s Concert →
+            </a>
+          </article>
+
+          <article class="path reveal" id="operators">
+            <p class="eyebrow">For Tour Operators</p>
+            <h3>Exceptional Budapest Concert Experiences for American Choirs and Orchestras.</h3>
+            <p>
+              You retain your client relationship. We bring local networks, production knowledge and on-site coordination to deliver a polished Budapest program.
+            </p>
+            <a class="btn" href="mailto:budapestconcertpromotions@gmail.com?subject=Tour%20Operator%20Partnership%20Inquiry">
+              Discuss a Partnership →
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <div class="head reveal">
+          <div>
+            <p class="eyebrow">What we coordinate</p>
+            <h2>Concerts &amp; Tour Services</h2>
+          </div>
+
+          <p class="intro">
+            We can support one essential part of a project or coordinate the complete local program. Every service is shaped around your ensemble, repertoire, timing and practical requirements.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service reveal">
+            <h3>Concert Production</h3>
+            <p>Venue sourcing and booking, scheduling, permits, rehearsals, technical planning, stage setup and on-site production management.</p>
+          </article>
+
+          <article class="service reveal">
+            <h3>Audience Development</h3>
+            <p>Local promotion, event listings, partner outreach and on-the-ground activity designed to bring the right audience into the room.</p>
+          </article>
+
+          <article class="service reveal">
+            <h3>Tailored Tour Support</h3>
+            <p>Optional hotels, restaurants, coaches, airport transfers, professional guides and cultural experiences around Budapest.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="head reveal">
+          <div>
+            <p class="eyebrow">A clear process</p>
+            <h2>From First Email to Final Applause</h2>
+          </div>
+
+          <p class="intro">
+            One local point of contact keeps artistic, technical and operational details aligned from the earliest planning stage through performance day.
+          </p>
+        </div>
+
+        <div class="process">
+          <article class="step reveal">
+            <span class="no">1</span>
+            <h3>Tell Us About Your Group</h3>
+            <p>Dates, group size, repertoire, technical needs and Budapest plans.</p>
+          </article>
+
+          <article class="step reveal">
+            <span class="no">2</span>
+            <h3>Shape the Concert Plan</h3>
+            <p>Suitable venues and a practical production and tour proposal.</p>
+          </article>
+
+          <article class="step reveal">
+            <span class="no">3</span>
+            <h3>Coordinate Locally</h3>
+            <p>Confirmed arrangements, schedules, partners and operational details.</p>
+          </article>
+
+          <article class="step reveal">
+            <span class="no">4</span>
+            <h3>Perform With Confidence</h3>
+            <p>Your ensemble is supported throughout its Budapest experience.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="venues">
+      <div class="wrap venue-layout">
+        <div class="reveal">
+          <p class="eyebrow">Venue expertise</p>
+          <h2>Budapest Venues With Character</h2>
+          <p class="intro">
+            We match groups with spaces that suit their musical level, ensemble size, repertoire, technical requirements and preferred audience atmosphere.
+          </p>
+          <p class="intro">
+            Availability, final capacity, cost and technical conditions are confirmed individually for every project.
+          </p>
+        </div>
+
+        <div class="featured-venues reveal">
+          <article class="venue-card">
+            <svg viewBox="0 0 600 430" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <linearGradient id="angelsBg" x1="0" y1="0" x2="1" y2="1">
+                  <stop stop-color="#d9e6e0"/>
+                  <stop offset="1" stop-color="#547571"/>
+                </linearGradient>
+              </defs>
+              <rect width="600" height="430" fill="url(#angelsBg)"/>
+              <path d="M0 330 L90 250 L165 330 L245 210 L330 330 L425 240 L520 330 L600 260 V430 H0Z" fill="#315b57"/>
+              <path d="M95 325V155 Q165 65 235 155V325M330 325V125Q405 35 480 125V325" fill="none" stroke="#f6f2e9" stroke-width="18"/>
+              <path d="M95 200H235M330 175H480" stroke="#d8b66d" stroke-width="7"/>
+              <circle cx="165" cy="145" r="25" fill="#d8b66d"/>
+              <circle cx="405" cy="115" r="25" fill="#d8b66d"/>
+              <path d="M0 370H600" stroke="#f6f2e9" stroke-width="6" opacity=".5"/>
+            </svg>
+            <div class="venue-overlay">
+              <h3>St. Angels’ Church</h3>
+              <p>A warm, distinctive church setting for memorable performances.</p>
+            </div>
+          </article>
+
+          <article class="venue-card">
+            <svg viewBox="0 0 600 430" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <linearGradient id="matthiasBg" x1="0" y1="0" x2="1" y2="1">
+                  <stop stop-color="#d0d8db"/>
+                  <stop offset="1" stop-color="#6a5d55"/>
+                </linearGradient>
+              </defs>
+              <rect width="600" height="430" fill="url(#matthiasBg)"/>
+              <path d="M90 430V130L150 45L210 130V430M260 430V95L330 10L400 95V430M445 430V155L500 78L555 155V430" fill="#4d4e4b"/>
+              <path d="M150 45V300M330 10V300M500 78V300" stroke="#e4c276" stroke-width="11"/>
+              <path d="M72 250H575M72 330H575" stroke="#d5e5e1" stroke-width="4" opacity=".6"/>
+              <path d="M300 430V210" stroke="#e4c276" stroke-width="8"/>
+              <circle cx="300" cy="190" r="30" fill="#e4c276"/>
+            </svg>
+            <div class="venue-overlay">
+              <h3>Matthias Church</h3>
+              <p>Historic grandeur and a powerful setting in Buda Castle.</p>
+            </div>
+          </article>
+
+          <article class="venue-card">
+            <svg viewBox="0 0 600 430" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <linearGradient id="musicBg" x1="0" y1="0" x2="1" y2="1">
+                  <stop stop-color="#dce8e1"/>
+                  <stop offset="1" stop-color="#9ab6ac"/>
+                </linearGradi
